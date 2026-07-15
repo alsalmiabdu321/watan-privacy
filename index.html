@@ -88,6 +88,43 @@
             display: inline-block;
         }
 
+        /* App icon and metadata styling */
+        .app-icon {
+            width: 100px;
+            height: 100px;
+            border-radius: 22px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.35);
+            margin-bottom: 20px;
+            border: 2.5px solid #e8d5a3;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+            position: relative;
+            z-index: 2;
+        }
+        .app-icon:hover {
+            transform: scale(1.05);
+        }
+        .app-meta {
+            margin-top: 20px;
+            font-size: 1.1rem;
+            color: #ece8e0;
+            position: relative;
+            z-index: 2;
+        }
+        .package-badge {
+            background: rgba(232, 213, 163, 0.15);
+            border: 1px solid rgba(232, 213, 163, 0.35);
+            color: #e8d5a3;
+            padding: 6px 18px;
+            border-radius: 30px;
+            font-size: 0.95rem;
+            display: inline-block;
+            margin-top: 12px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            letter-spacing: 0.5px;
+            direction: ltr;
+        }
+
         /* Language switcher */
         .lang-wrapper {
             display: flex;
@@ -363,8 +400,19 @@
 <body>
     <div class="hero">
         <div class="container">
-            <h1>سياسة الخصوصية <span>وطن سداد</span></h1>
-            <p>نضع خصوصيتك في أعلى أولوياتنا، ونضمن لك الشفافية الكاملة</p>
+            <img src="icon.jpg" class="app-icon" alt="وطن سداد">
+            <h1 class="ar-text">سياسة الخصوصية لـ <span>وطن سداد</span></h1>
+            <h1 class="en-text" style="display: none;">Privacy Policy for <span>Watan Sadad</span></h1>
+            <div>
+                <p class="ar-text">نضع خصوصيتك في أعلى أولوياتنا، ونضمن لك الشفافية الكاملة</p>
+                <p class="en-text" style="display: none;">We prioritize your privacy and ensure complete transparency</p>
+            </div>
+            <div class="app-meta">
+                <span class="ar-text"><strong>اسم التطبيق:</strong> وطن سداد - شحن فوري و باقات</span>
+                <span class="en-text" style="display: none;"><strong>App Name:</strong> Watan Sadad - Instant Recharge & Packages</span>
+                <br>
+                <span class="package-badge">watan.sadad</span>
+            </div>
         </div>
     </div>
 
@@ -378,7 +426,7 @@
         <div class="policy-grid arabic-version" style="display: block;">
             <div class="card">
                 <h2>مقدمة</h2>
-                <p>نرحب بك في <strong>وطن سداد</strong>. نحن ندرك أهمية خصوصيتك ونلتزم بحماية بياناتك الشخصية. توضح سياسة الخصوصية هذه كيفية جمعنا واستخدامنا وحماية معلوماتك الشخصية عند استخدامك لتطبيقنا.</p>
+                <p>نرحب بك في تطبيق <strong>وطن سداد - شحن فوري و باقات</strong> ذو اسم الحزمة (<code>watan.sadad</code>). نحن ندرك أهمية خصوصيتك ونلتزم بحماية بياناتك الشخصية. توضح سياسة الخصوصية هذه كيفية جمعنا واستخدامنا وحماية معلوماتك الشخصية عند استخدامك لتطبيقنا.</p>
                 <p>باستخدامك للتطبيق، فإنك توافق على جمع واستخدام المعلومات وفقًا لهذه السياسة. نحن لا نشارك معلوماتك مع أي أطراف ثالثة إلا كما هو موضح في هذه السياسة.</p>
             </div>
 
@@ -519,7 +567,7 @@
         <div class="policy-grid english-version" style="display: none;">
             <div class="card">
                 <h2>Introduction</h2>
-                <p>Welcome to <strong>Watan Sdad</strong>. We recognize the importance of your privacy and are committed to protecting your personal data. This Privacy Policy explains how we collect, use, and protect your personal information when you use our application.</p>
+                <p>Welcome to <strong>Watan Sadad - Instant Recharge & Packages</strong> application with package name (<code>watan.sadad</code>). We recognize the importance of your privacy and are committed to protecting your personal data. This Privacy Policy explains how we collect, use, and protect your personal information when you use our application.</p>
                 <p>By using the application, you agree to the collection and use of information in accordance with this policy. We do not share your information with any third parties except as described in this policy.</p>
             </div>
 
@@ -650,6 +698,10 @@
             document.querySelectorAll('.lang-btn')[0].classList.add('active');
             document.querySelectorAll('.lang-btn')[1].classList.remove('active');
             document.body.setAttribute('dir', 'rtl');
+
+            // Toggle language-specific text in hero
+            document.querySelectorAll('.ar-text').forEach(el => el.style.display = '');
+            document.querySelectorAll('.en-text').forEach(el => el.style.display = 'none');
         }
         function showEnglish() {
             document.querySelector('.arabic-version').style.display = 'none';
@@ -657,6 +709,10 @@
             document.querySelectorAll('.lang-btn')[0].classList.remove('active');
             document.querySelectorAll('.lang-btn')[1].classList.add('active');
             document.body.setAttribute('dir', 'ltr');
+
+            // Toggle language-specific text in hero
+            document.querySelectorAll('.ar-text').forEach(el => el.style.display = 'none');
+            document.querySelectorAll('.en-text').forEach(el => el.style.display = '');
         }
 
         // Handle hash on load to toggle language and scroll to element
