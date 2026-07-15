@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>سياسة الخصوصية - وطن سداد</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Tajawal', 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background: linear-gradient(145deg, #f7f2ec 0%, #efe8e0 100%);
+            color: #2c3e3a;
+            line-height: 1.7;
+            scroll-behavior: smooth;
+        }
+
+        .container {
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Hero section with luxurious emerald & gold */
+        .hero {
+            background: linear-gradient(135deg, #0f3d3a 0%, #1a5a4a 40%, #2a7a6a 100%);
+            color: white;
+            padding: 60px 20px 80px;
+            text-align: center;
+            border-radius: 0 0 60px 60px;
+            margin-bottom: 40px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: "◆";
+            font-size: 240px;
+            position: absolute;
+            bottom: -80px;
+            right: -30px;
+            opacity: 0.06;
+            pointer-events: none;
+            transform: rotate(20deg);
+            font-weight: 300;
+        }
+
+        .hero::after {
+            content: "";
+            position: absolute;
+            top: -30%;
+            left: -10%;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(212, 175, 55, 0.2) 0%, rgba(0,0,0,0) 70%);
+            border-radius: 50%;
+        }
+
+        .hero h1 {
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+            letter-spacing: -0.5px;
+            position: relative;
+            z-index: 2;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .hero h1 span {
+            color: #e8d5a3;
+            border-bottom: 3px solid #e8d5a3;
+            display: inline-block;
+            padding-bottom: 5px;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 750px;
+            margin: 0 auto;
+            opacity: 0.95;
+            background: rgba(0,0,0,0.2);
+            backdrop-filter: blur(4px);
+            padding: 12px 24px;
+            border-radius: 80px;
+            display: inline-block;
+        }
+
+        /* Language switcher */
+        .lang-wrapper {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            margin: -25px auto 40px;
+            position: relative;
+            z-index: 5;
+        }
+
+        .lang-btn {
+            background: white;
+            border: none;
+            padding: 12px 32px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: 0.3s;
+            box-shadow: 0 8px 18px rgba(0,0,0,0.05);
+            color: #1a5a4a;
+            border: 1px solid #d4c8b8;
+        }
+
+        .lang-btn.active {
+            background: #e8d5a3;
+            color: #0f3d3a;
+            border-color: #0f3d3a;
+            box-shadow: 0 6px 14px rgba(232, 213, 163, 0.4);
+        }
+
+        .lang-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 22px rgba(0,0,0,0.1);
+        }
+
+        /* Policy grid cards - new design */
+        .policy-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 28px;
+            margin-bottom: 50px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 28px;
+            padding: 34px 38px;
+            box-shadow: 0 15px 35px -10px rgba(0,0,0,0.08);
+            transition: all 0.3s;
+            border: 1px solid rgba(26, 90, 74, 0.08);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 6px;
+            height: 100%;
+            background: linear-gradient(180deg, #e8d5a3, #2a7a6a);
+            border-radius: 0 4px 4px 0;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px -12px rgba(26, 90, 74, 0.15);
+        }
+
+        .card h2 {
+            font-size: 1.9rem;
+            margin-bottom: 24px;
+            padding-right: 20px;
+            color: #1a5a4a;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .card h2::before {
+            content: "✦";
+            color: #e8d5a3;
+            font-size: 1.8rem;
+        }
+
+        .card h3 {
+            font-size: 1.4rem;
+            margin: 24px 0 16px;
+            color: #2a7a6a;
+            position: relative;
+            padding-right: 28px;
+            font-weight: 600;
+        }
+
+        .card h3::before {
+            content: "▸";
+            position: absolute;
+            right: 0;
+            color: #e8d5a3;
+            font-size: 1.4rem;
+            top: 0;
+        }
+
+        .card p, .card li {
+            color: #3a4e4a;
+            font-size: 1.05rem;
+        }
+
+        .card li {
+            margin-bottom: 10px;
+        }
+
+        /* table style - new modern */
+        .permissions-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            margin: 30px 0;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+        }
+
+        .permissions-table th {
+            background: #1a5a4a;
+            color: #e8d5a3;
+            padding: 16px 20px;
+            font-weight: 700;
+            text-align: right;
+            font-size: 1rem;
+        }
+
+        .permissions-table td {
+            background: white;
+            padding: 14px 20px;
+            border-bottom: 1px solid #ece8e0;
+        }
+
+        .permissions-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .permissions-table tr:hover td {
+            background: #f8f5f0;
+        }
+
+        .permission-type {
+            display: inline-block;
+            padding: 4px 14px;
+            border-radius: 40px;
+            font-size: 0.8rem;
+            font-weight: 700;
+        }
+
+        .required {
+            background: #ffebe6;
+            color: #b84a3a;
+            border-left: 2px solid #e8d5a3;
+        }
+
+        .none {
+            background: #edf3f0;
+            color: #3a6a5a;
+        }
+
+        .important-notice {
+            background: #faf6ec;
+            border-radius: 20px;
+            padding: 24px 28px;
+            margin: 28px 0;
+            border-right: 6px solid #e8d5a3;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+        }
+
+        .important-notice h3 {
+            margin-top: 0;
+        }
+
+        .split-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 12px;
+            margin-top: 10px;
+        }
+
+        .split-list li {
+            margin-bottom: 8px;
+        }
+
+        footer {
+            background: #0f3d3a;
+            color: #ddd;
+            padding: 48px 24px;
+            text-align: center;
+            border-radius: 50px 50px 0 0;
+            margin-top: 50px;
+            border-top: 3px solid #e8d5a3;
+        }
+
+        footer .contact-badge {
+            background: rgba(232, 213, 163, 0.12);
+            display: inline-block;
+            padding: 14px 32px;
+            border-radius: 60px;
+            margin-top: 20px;
+            font-size: 1.2rem;
+            font-weight: 500;
+            color: #e8d5a3;
+            border: 1px solid rgba(232, 213, 163, 0.3);
+            letter-spacing: 0.5px;
+        }
+
+        footer .contact-badge::before {
+            content: "📞 ";
+        }
+
+        /* English version alignment */
+        .english-version {
+            display: none;
+            direction: ltr;
+            text-align: left;
+        }
+
+        .english-version .card::before {
+            right: auto;
+            left: 0;
+            border-radius: 4px 0 0 4px;
+        }
+
+        .english-version .card h2 {
+            padding-right: 0;
+            padding-left: 20px;
+        }
+
+        .english-version .card h2::before {
+            content: "✦";
+            margin-left: 12px;
+        }
+
+        .english-version .card h3 {
+            padding-right: 0;
+            padding-left: 28px;
+        }
+
+        .english-version .card h3::before {
+            right: auto;
+            left: 0;
+            content: "▸";
+        }
+
+        .english-version .important-notice {
+            border-right: none;
+            border-left: 6px solid #e8d5a3;
+        }
+
+        @media (max-width: 800px) {
+            .card {
+                padding: 24px 20px;
+            }
+            .hero h1 {
+                font-size: 2rem;
+            }
+            .permissions-table th, .permissions-table td {
+                padding: 12px 10px;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="hero">
+        <div class="container">
+            <h1>سياسة الخصوصية <span>وطن سداد</span></h1>
+            <p>نضع خصوصيتك في أعلى أولوياتنا، ونضمن لك الشفافية الكاملة</p>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="lang-wrapper">
+            <button class="lang-btn active" onclick="showArabic()">العربية</button>
+            <button class="lang-btn" onclick="showEnglish()">English</button>
+        </div>
+
+        <!-- ========== النسخة العربية ========== -->
+        <div class="policy-grid arabic-version" style="display: block;">
+            <div class="card">
+                <h2>مقدمة</h2>
+                <p>نرحب بك في <strong>وطن سداد</strong>. نحن ندرك أهمية خصوصيتك ونلتزم بحماية بياناتك الشخصية. توضح سياسة الخصوصية هذه كيفية جمعنا واستخدامنا وحماية معلوماتك الشخصية عند استخدامك لتطبيقنا.</p>
+                <p>باستخدامك للتطبيق، فإنك توافق على جمع واستخدام المعلومات وفقًا لهذه السياسة. نحن لا نشارك معلوماتك مع أي أطراف ثالثة إلا كما هو موضح في هذه السياسة.</p>
+            </div>
+
+            <div class="card">
+                <h2>البيانات التي نجمعها</h2>
+                <p>نقوم بجمع أنواع مختلفة من المعلومات لتقديم خدماتنا وتحسين تجربتك:</p>
+                <h3>البيانات التي تقدمها مباشرة</h3>
+                <ul class="split-list">
+                    <li><strong>بيانات التسجيل:</strong> الاسم الكامل، رقم الهاتف، العنوان (كتابة يدوية)، اسم المستخدم، وكلمة المرور.</li>
+                    <li><strong>بيانات الخدمات:</strong> المعلومات التي تدخلها عند طلب خدمة معينة.</li>
+                </ul>
+                <h3>البيانات التي نجمعها تلقائياً</h3>
+                <ul class="split-list">
+                    <li><strong>بيانات الاستخدام:</strong> معلومات عن كيفية تفاعلك مع التطبيق والخدمات التي تستخدمها.</li>
+                    <li><strong>بيانات الجهاز:</strong> نوع الجهاز ونظام التشغيل وإصدار التطبيق.</li>
+                </ul>
+                <h3>البيانات التي نطلب صلاحيات الوصول إليها</h3>
+                <ul>
+                    <li><strong>الكاميرا:</strong> نطلب صلاحية الوصول للكاميرا فقط عند الحاجة لالتقاط صورة أو قراءة الباركود مباشرة.</li>
+                    <li><strong>جهات الاتصال:</strong> نطلب صلاحية الوصول لجهات الاتصال فقط لاختيار رقم هاتف (لا نرسل الأسماء إلى الخادم).</li>
+                    <li><strong>التخزين/الصور:</strong> نستخدم تقنية Native لاختيار الصور بدون طلب صلاحية الوصول للصور.</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h2>جدول الصلاحيات والوصول</h2>
+                <table class="permissions-table">
+                    <thead>
+                        <tr><th>الصلاحية</th><th>الغرض من الاستخدام</th><th>نوع الوصول</th><th>متى تُطلب</th></thead>
+                    <tbody>
+                        <tr>
+                            <td>الكاميرا</td>
+                            <td>لالتقاط صور مباشرة أو قراءة الباركود</td>
+                            <td><span class="permission-type required">مطلوبة للخدمة</span></td>
+                            <td>عند استخدام خدمة تتطلب التصوير</td>
+                        </tr>
+                        <tr>
+                            <td>جهات الاتصال</td>
+                            <td>لاختيار رقم هاتف فقط (بدون إرسال الأسماء)</td>
+                            <td><span class="permission-type none">بدون صلاحية</span></td>
+                            <td>عند استخدام خدمة تتطلب اختيار رقم</td>
+                        </tr>
+                        <tr>
+                            <td>التخزين/الصور</td>
+                            <td>اختيار صور من الجهاز (باستخدام Native)</td>
+                            <td><span class="permission-type none">بدون صلاحية</span></td>
+                            <td>عند استخدام خدمة تتطلب رفع صورة</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="important-notice">
+                    <h3>ملاحظة هامة</h3>
+                    <p>نستخدم تقنية <strong>Native</strong> لاختيار الصور ورقم الهاتف، مما يعني:</p>
+                    <ul>
+                        <li>لا نطلب صلاحية الوصول إلى الصور عند اختيار صورة من الجهاز</li>
+                        <li>لا نطلب صلاحية الوصول الكامل إلى جهات الاتصال، فقط لاختيار الرقم (بدون الأسماء)</li>
+                        <li>لا نرسل أسماء جهات الاتصال إلى الخادم، فقط رقم الهاتف المحدد</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>كيف نستخدم بياناتك</h2>
+                <ol>
+                    <li>توفير الخدمات المطلوبة وتنفيذها.</li>
+                    <li>إنشاء حسابك وإدارته.</li>
+                    <li>تحسين أداء التطبيق وتجربة المستخدم.</li>
+                    <li>التواصل معك بشأن خدماتك أو تحديثات التطبيق.</li>
+                    <li>ضمان أمن التطبيق وحماية بيانات المستخدمين.</li>
+                </ol>
+            </div>
+
+            <div class="card">
+                <h2>معالجة البيانات المؤقتة</h2>
+                <ul>
+                    <li>يتم تخزين البيانات اللازمة لإتمام الخدمة فقط أثناء فترة المعالجة.</li>
+                    <li>بعد إتمام الخدمة، نحتفظ بالبيانات المطلوبة للسجلات المالية فقط وفقاً للفترة القانونية المطلوبة.</li>
+                    <li>لا نحتفظ بالصور المرفوعة بعد إتمام الخدمة إلا إذا كانت ضرورية للإثبات أو للأغراض القانونية.</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h2>مشاركة البيانات مع أطراف ثالثة</h2>
+                <p>نحن لا نبيع أو نؤجر بياناتك الشخصية للآخرين. قد نشارك بعض البيانات المحدودة مع جهات خارجية موثوقة (أطراف ثالثة) لتسهيل تشغيل التطبيق وتقديم الخدمات، وهم ملتزمون تماماً بحماية خصوصيتك وعدم استخدام البيانات لأي أغراض أخرى. تشمل هذه الأطراف:</p>
+                <ul>
+                    <li><strong>خدمات Firebase و Google Analytics:</strong> لتحسين أداء التطبيق، وتشخيص الأعطال، وإرسال الإشعارات الفورية للمستخدمين.</li>
+                    <li><strong>مزودي خدمات الاتصالات وبوابات الدفع الإلكتروني:</strong> لمعالجة عمليات السداد وشحن الرصيد والخدمات المالية المتاحة داخل التطبيق.</li>
+                </ul>
+            </div>
+
+            <div class="card" id="delete-account">
+                <h2>حذف الحساب والبيانات</h2>
+                <p>إذا كنت ترغب في حذف حسابك وبياناتك الشخصية نهائياً من خوادمنا، فيمكنك تقديم طلب حذف الحساب عن طريق التواصل مباشرة مع الدعم الفني أو خدمة العملاء عبر الطرق التالية:</p>
+                <ol>
+                    <li><strong>التواصل عبر الواتساب:</strong> يمكنك مراسلة الدعم الفني مباشرة عبر الواتساب على الرقم <a href="https://wa.me/967776970680?text=%D8%A3%D8%B1%D9%8A%D8%AF%20%D8%AD%D8%B0%D9%81%20%D8%AD%D8%B3%D8%A7%D8%A8%D9%8A%20%D9%81%D9%8A%20%D8%AA%D8%B7%D8%A8%D9%8A%D9%82%20%D9%88%D8%B7%D9%86%20%D8%B3%D8%AF%D8%A7%D8%AF" target="_blank">+967 776 970 680</a> وتقديم طلب الحذف.</li>
+                    <li><strong>الدعم الفني داخل التطبيق:</strong> يمكنك الانتقال إلى قسم الدعم الفني داخل التطبيق وإرسال طلب لحذف الحساب.</li>
+                </ol>
+                <p style="margin-top: 15px;">عند إتمام حذف حسابك:</p>
+                <ul>
+                    <li>سيتم حذف جميع بياناتك الشخصية من خوادمنا بشكل نهائي.</li>
+                    <li>سيتم الاحتفاظ بالسجلات والبيانات المالية المتعلقة بالمعاملات فقط للفترة القانونية المطلوبة وفق القوانين السارية.</li>
+                    <li>لن تتمكن من استعادة حسابك أو الوصول إلى بياناتك السابقة بعد إتمام عملية الحذف.</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h2>خصوصية الأطفال</h2>
+                <p>خدماتنا غير موجهة للأطفال دون سن 13 عاماً (أو 18 عاماً)، ونحن لا نجمع عن علم أي بيانات شخصية منهم. إذا علمنا بأننا قمنا بجمع بيانات شخصية من طفل دون السن القانوني بشكل غير مقصود، فإننا نتخذ الخطوات الفورية لحذف هذه المعلومات من خوادمنا. إذا كنت ولي أمر وعلمت أن طفلك قد زودنا ببيانات شخصية، يرجى التواصل معنا عبر الدعم الفني أو الواتساب لاتخاذ الإجراءات اللازمة وحذف البيانات.</p>
+            </div>
+
+            <div class="card">
+                <h2>الأمان</h2>
+                <ul>
+                    <li>التشفير أثناء نقل البيانات.</li>
+                    <li>ممارسات أمنية معيارية في الصناعة.</li>
+                    <li>الوصول المحدود للبيانات للموظفين المخولين فقط.</li>
+                    <li>مراجعات أمنية منتظمة لأنظمتنا.</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h2>تغييرات على سياسة الخصوصية</h2>
+                <p>قد نقوم بتحديث سياسة الخصوصية هذه من وقت لآخر. سنقوم بإعلامك بأي تغييرات جوهرية عن طريق نشر الإشعار في التطبيق. ننصحك بمراجعة هذه السياسة بشكل دوري لأي تغييرات.</p>
+            </div>
+
+            <div class="card">
+                <h2>اتصل بنا</h2>
+                <p>إذا كان لديك أي أسئلة أو استفسارات حول سياسة الخصوصية هذه أو ممارساتنا المتعلقة ببياناتك، يرجى الاتصال بنا عبر:</p>
+                <ul>
+                    <li><strong>رقم الهاتف:</strong> +967 776 970 680</li>
+                    <li><strong>من خلال التطبيق:</strong> قسم الدعم الفني</li>
+                </ul>
+                <p style="margin-top: 20px; color: #1a5a4a; font-weight: 600;">تاريخ آخر تحديث: 1 يناير 2026</p>
+            </div>
+        </div>
+
+        <!-- ========== النسخة الإنجليزية ========== -->
+        <div class="policy-grid english-version" style="display: none;">
+            <div class="card">
+                <h2>Introduction</h2>
+                <p>Welcome to <strong>Watan Sdad</strong>. We recognize the importance of your privacy and are committed to protecting your personal data. This Privacy Policy explains how we collect, use, and protect your personal information when you use our application.</p>
+                <p>By using the application, you agree to the collection and use of information in accordance with this policy. We do not share your information with any third parties except as described in this policy.</p>
+            </div>
+
+            <div class="card">
+                <h2>Data We Collect</h2>
+                <p>We collect different types of information to provide our services and improve your experience:</p>
+                <h3>Data you provide directly</h3>
+                <ul class="split-list">
+                    <li><strong>Registration data:</strong> Full name, phone number, address (handwritten), username, and password.</li>
+                    <li><strong>Service data:</strong> Information you enter when requesting a specific service.</li>
+                </ul>
+                <h3>Data collected automatically</h3>
+                <ul class="split-list">
+                    <li><strong>Usage data:</strong> Information about how you interact with the application and the services you use.</li>
+                    <li><strong>Device data:</strong> Device type, operating system, and app version.</li>
+                </ul>
+                <h3>Data requiring access permissions</h3>
+                <ul>
+                    <li><strong>Camera:</strong> We request camera access only when needed to capture a photo or read a barcode directly.</li>
+                    <li><strong>Contacts:</strong> We request contacts access only to select a phone number (we do not send names to the server).</li>
+                    <li><strong>Storage/Photos:</strong> We use Native technology to select photos without requesting photo access permission.</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h2>Permissions and Access Table</h2>
+                <table class="permissions-table">
+                    <thead><tr><th>Permission</th><th>Purpose</th><th>Access Type</th><th>When Requested</th></tr></thead>
+                    <tbody>
+                        <tr>
+                            <td>Camera</td>
+                            <td>Take photos / read barcode</td>
+                            <td><span class="permission-type required">Required for service</span></td>
+                            <td>When using camera-based service</td>
+                        </tr>
+                        <tr>
+                            <td>Contacts</td>
+                            <td>Select phone number only</td>
+                            <td><span class="permission-type none">No permission</span></td>
+                            <td>When number selection needed</td>
+                        </tr>
+                        <tr>
+                            <td>Storage/Photos</td>
+                            <td>Pick images (Native)</td>
+                            <td><span class="permission-type none">No permission</span></td>
+                            <td>When uploading an image</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="important-notice">
+                    <h3>Important Note</h3>
+                    <p>We use Native technology for selecting photos and phone numbers, meaning:</p>
+                    <ul><li>No photo permission required</li><li>No full contacts access, only number picking</li><li>No contact names sent to server</li></ul>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>How We Use Your Data</h2>
+                <ol><li>Providing services</li><li>Account management</li><li>Improving experience</li><li>Communication</li><li>Security</li></ol>
+            </div>
+
+            <div class="card">
+                <h2>Temporary Data Processing</h2>
+                <ul><li>Only necessary data stored during service</li><li>Financial records retained legally</li><li>Images not retained unless required by law</li></ul>
+            </div>
+
+            <div class="card">
+                <h2>Data Sharing with Third Parties</h2>
+                <p>We do not sell or rent your personal data to others. We may share limited data with trusted third-party service providers to facilitate the app’s operation and provide services, and they are fully committed to protecting your privacy. These parties include:</p>
+                <ul>
+                    <li><strong>Firebase and Google Analytics (Google):</strong> For app performance optimization, push notifications, and crash diagnostics.</li>
+                    <li><strong>Local Telecom Providers & Payment Gateways:</strong> For processing financial transactions, payments, and recharge services.</li>
+                </ul>
+            </div>
+
+            <div class="card" id="delete-account-en">
+                <h2>Account & Data Deletion</h2>
+                <p>If you wish to permanently delete your account and personal data from our servers, you can submit a deletion request by contacting our Customer Service or Technical Support directly through the following channels:</p>
+                <ol>
+                    <li><strong>WhatsApp Support:</strong> You can contact our support team directly via WhatsApp at <a href="https://wa.me/967776970680?text=I%20want%20to%20delete%20my%20account%20in%20Watan%20Sdad%20app" target="_blank">+967 776 970 680</a> to submit your deletion request.</li>
+                    <li><strong>In-App Support:</strong> Go to the Technical Support section within the application and send an account deletion request.</li>
+                </ol>
+                <p style="margin-top: 15px;">Upon successful deletion of your account:</p>
+                <ul>
+                    <li>All your personal data will be permanently removed from our servers.</li>
+                    <li>Transaction and financial records will be retained only as required by applicable laws.</li>
+                    <li>You will not be able to recover your account or access your history once deleted.</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h2>Children's Privacy</h2>
+                <p>Our services are not intended for children under the age of 13 (or 18), and we do not knowingly collect personal data from them. If we discover that we have inadvertently collected personal data from a child, we will take immediate steps to delete this information from our servers. If you are a parent or guardian and know that your child has provided us with personal data, please contact us via support or WhatsApp to take the necessary actions.</p>
+            </div>
+
+            <div class="card">
+                <h2>Security</h2>
+                <ul><li>Encryption</li><li>Limited access</li><li>Regular reviews</li></ul>
+            </div>
+
+            <div class="card">
+                <h2>Changes to Privacy Policy</h2>
+                <p>We may update this policy; we'll notify you in the app.</p>
+            </div>
+
+            <div class="card">
+                <h2>Contact Us</h2>
+                <ul><li>Phone: +967 776 970 680</li><li>In-app support</li></ul>
+                <p style="margin-top:20px;">Last Updated: January 1, 2026</p>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>© 2026 وطن سداد. جميع الحقوق محفوظة.</p>
+            <p>© 2026 Watan Sdad. All rights reserved.</p>
+            <div class="contact-badge">
+                +967 776 970 680
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function showArabic() {
+            document.querySelector('.arabic-version').style.display = 'flex';
+            document.querySelector('.english-version').style.display = 'none';
+            document.querySelectorAll('.lang-btn')[0].classList.add('active');
+            document.querySelectorAll('.lang-btn')[1].classList.remove('active');
+            document.body.setAttribute('dir', 'rtl');
+        }
+        function showEnglish() {
+            document.querySelector('.arabic-version').style.display = 'none';
+            document.querySelector('.english-version').style.display = 'flex';
+            document.querySelectorAll('.lang-btn')[0].classList.remove('active');
+            document.querySelectorAll('.lang-btn')[1].classList.add('active');
+            document.body.setAttribute('dir', 'ltr');
+        }
+
+        // Handle hash on load to toggle language and scroll to element
+        function handleHash() {
+            const hash = window.location.hash;
+            if (hash === '#delete-account-en') {
+                showEnglish();
+                setTimeout(() => {
+                    const el = document.getElementById('delete-account-en');
+                    if (el) el.scrollIntoView({ behavior: 'smooth' });
+                }, 100);
+            } else if (hash === '#delete-account') {
+                showArabic();
+                setTimeout(() => {
+                    const el = document.getElementById('delete-account');
+                    if (el) el.scrollIntoView({ behavior: 'smooth' });
+                }, 100);
+            } else {
+                showArabic();
+            }
+        }
+
+        // Run on load and hashchange
+        window.addEventListener('hashchange', handleHash);
+        window.addEventListener('DOMContentLoaded', handleHash);
+    </script>
+</body>
+</html>
